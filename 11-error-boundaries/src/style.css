@@ -189,6 +189,7 @@ header {
 
 .search-params button,
 #modal button,
+#modal a,
 .details button {
   background-color: #ad343e;
   padding: 5px 25px;
@@ -199,6 +200,12 @@ header {
   display: block;
   margin: 0 auto;
   cursor: pointer;
+}
+
+#modal a {
+  display: inline-block;
+  margin-right: 15px;
+  text-decoration: none;
 }
 
 .search-params button:hover {
