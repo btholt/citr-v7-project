@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Pet from "./Pet";
+
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
@@ -18,7 +19,7 @@ const SearchParams = () => {
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
-  
+
     setPets(json.pets);
   }
 
@@ -39,8 +40,14 @@ const SearchParams = () => {
           <select
             id="animal"
             value={animal}
-            onChange={(e) => updateAnimal(e.target.value)}
-            onBlur={(e) => updateAnimal(e.target.value)}
+            onChange={(e) => {
+              updateAnimal(e.target.value);
+              updateBreed("");
+            }}
+            onBlur={(e) => {
+              updateAnimal(e.target.value);
+              updateBreed("");
+            }}
           >
             <option />
             {ANIMALS.map((animal) => (
@@ -69,11 +76,14 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
-      {
-        pets.map((pet) => (
-          <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
-        ))
-      }
+      {pets.map((pet) => (
+        <Pet
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+          key={pet.id}
+        />
+      ))}
     </div>
   );
 };

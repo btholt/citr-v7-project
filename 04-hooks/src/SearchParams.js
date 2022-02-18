@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {

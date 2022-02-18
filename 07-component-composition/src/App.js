@@ -1,5 +1,4 @@
-import { createRoot } from "react-dom";
-import { StrictMode } from "react";
+import { render } from "react-dom";
 import SearchParams from "./SearchParams";
 
 const App = () => {
@@ -11,10 +10,4 @@ const App = () => {
   );
 };
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+render(<App />, document.getElementById("root"));
