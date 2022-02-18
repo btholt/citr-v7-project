@@ -2,9 +2,9 @@
   "name": "adopt-me",
   "version": "7.0.0",
   "description": "Adopt pets via adopt-me",
-  "main": "src/App.js",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "build": "parcel build",
+    "start": "npm -s run build && node dist/backend/index.js",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
@@ -22,11 +22,35 @@
     "prettier": "2.5.1"
   },
   "dependencies": {
+    "browser-or-node": "^2.0.0",
+    "express": "^4.17.2",
     "react": "18.0.0-rc.0",
     "react-dom": "18.0.0-rc.0",
     "react-router-dom": "6.2.1"
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  "targets": {
+    "frontend": {
+      "source": [
+        "src/ClientApp.js"
+      ],
+      "publicUrl": "frontend"
+    },
+    "styles": {
+      "source": [
+        "src/style.css"
+      ],
+      "publicUrl": "frontend"
+    },
+    "backend": {
+      "source": "server/index.js",
+      "optimize": false,
+      "context": "node",
+      "engines": {
+        "node": ">=14"
+      }
+    }
+  }
 }

@@ -1,4 +1,14 @@
-export default function getPet(id) {
+export default function getPet(id, isBrowser) {
+  console.log("isBrowser", isBrowser);
+
+  if (!isBrowser) {
+    return {
+      readData() {
+        return 5;
+      },
+    };
+  }
+
   let apiResult;
   let status = "pending";
   const suspensePromise = fetch(`http://pets-v2.dev-apis.com/pets?id=${id}`)
@@ -11,6 +21,7 @@ export default function getPet(id) {
       apiResult = err;
       status = "error";
     });
+
   return {
     readData() {
       if (status === "pending") {

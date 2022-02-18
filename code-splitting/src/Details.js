@@ -1,14 +1,16 @@
-import { Suspense, useState, lazy } from "react";
+import { Suspense, useState, lazy, useContext } from "react";
 import { useParams } from "react-router-dom";
 import getPet from "./getPet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import BrowserContext from "./BrowserContext";
 
 const Modal = lazy(() => import("./Modal"));
 
 function DetailsParent() {
+  const isBrowser = useContext(BrowserContext);
   const { id } = useParams();
-  const resource = getPet(id);
+  const resource = getPet(id, isBrowser);
 
   return (
     <Suspense fallback={<h2>loading …</h2>}>
