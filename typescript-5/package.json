@@ -1,0 +1,39 @@
+{
+  "name": "adopt-me",
+  "version": "7.0.0",
+  "description": "Adopt pets via adopt-me",
+  "main": "src/App.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "Brian Holt <btholt+citr-v7-project@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "7.16.7",
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "8.8.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "parcel": "2.2.1",
+    "prettier": "2.5.1",
+    "typescript": "4.5.5"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "^6.2.1"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
